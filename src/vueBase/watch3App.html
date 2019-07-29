@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue的Watch练习3</title>
+	<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+	<input type="text" v-model="num">
+</div>
+<script src="vue.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      num: ''
+    },
+    watch: {
+      num(newVal, oldVal) {
+        // 监听 num 属性的数据变化
+        // 作用 : 只要 num 的值发生变化,这个方法就会被调用
+        // 第一个参数 : 新值
+        // 第二个参数 : 旧值,之前的值
+        console.log('oldVal:',oldVal)
+        console.log('newVal:',newVal)
+      }
+    }
+  })
+</script>
+</body>
+
+</html>

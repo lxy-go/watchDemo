@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue的Watch练习5</title>
+	<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+<div id = "app">
+	Name: <input type="text"  v-model="student.name">
+</div>
+<script type = "text/javascript">
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      student: {
+        name:'Mike',
+        age:15
+			},
+    },
+
+    watch: {
+      student: {
+        handler(newStudent) {
+          console.log(newStudent.name)
+        },
+        deep: true
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

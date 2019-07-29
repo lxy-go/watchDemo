@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue的Watch练习4</title>
+	<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+<div id = "app">
+	<p style = "font-size:25px;">计数器: {{ counter }}</p>
+	<button @click = "counter++" style = "font-size:25px;">点我</button>
+</div>
+<script type = "text/javascript">
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      counter: 1
+    },
+		// watch:{
+     //  counter:function(newVal,oldVal){
+     //    alert('计数器值的变化（1） :' + oldVal + ' 变为 ' + newVal + '!');
+		// 	},
+		// }
+
+    // watch:{
+    //   counter(newVal,oldVal){
+    //     alert('计数器值的变化（2） :' + oldVal + ' 变为 ' + newVal + '!');
+    //   },
+    // }
+    watch: {
+      counter: {
+        handler(newVal, oldVal) {
+          alert('计数器值的变化（3） :' + oldVal + ' 变为 ' + newVal + '!');
+        },
+        // 代表在wacth里声明了counter这个方法之后立即先去执行handler方法，如果设置了false，那么效果和上边例子一样
+        immediate: true
+      }
+    }
+
+  });
+  // vm.$watch('counter', function(nval, oval) {
+  //   alert('计数器值的变化 :' + oval + ' 变为 ' + nval + '!');
+  // });
+</script>
+
+</body>
+</html>
